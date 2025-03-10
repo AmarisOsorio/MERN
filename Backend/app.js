@@ -5,5 +5,10 @@ import express from "express";
 // a la libreria que importe y la ejecutamos
 const app = express();
 
+//Definir la ruta
+app.use("/api/products")
+
+
+
 //Exportó la constante para poder usar express en otros lados
 export default app;
