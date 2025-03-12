@@ -4,6 +4,7 @@ import productsRoutes from "./src/routes/products.js" //OJO: recuerda siempre ag
 import clientsRoutes from "./src/routes/clients.js"
 import employeesRoutes from "./src/routes/employees.js"
 import branchesRoutes from "./src/routes/branches.js"
+import categoriesRoutes from "./src/routes/categories.js"
 
 /*Crear una constante que es igual
  a la libreria que importe y la ejecutamos*/
@@ -17,6 +18,7 @@ app.use("/api/products", productsRoutes)
 app.use("/api/clients", clientsRoutes)
 app.use("/api/employees" , employeesRoutes)
 app.use("/api/branches" , branchesRoutes)
+app.use("/api/categories" , categoriesRoutes)
 
 
 //Exportó la constante para poder usar express en otros lados
