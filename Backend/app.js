@@ -9,6 +9,7 @@ import reviewsRoutes from "./src/routes/reviews.js"
 import gradeRoute from "./src/routes/grade.js"
 import registerEmployeesRoute from "./src/routes/registerEmployees.js"
 import loginRoute from "./src/routes/login.js"
+import cookieParser from "cookie-parser";
 
 /*Crear una constante que es igual
  a la libreria que importe y la ejecutamos*/
@@ -16,6 +17,7 @@ const app = express();
 
 
 app.use(express.json()); //Esto permitira el uso de middleware para que acepte datos json, se coloca siempre arriba de la ruta
+app.use(cookieParser()); // Que acepte cookies
 
 //Definir la ruta
 app.use("/api/products" , productsRoutes);
