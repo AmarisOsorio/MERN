@@ -41,7 +41,7 @@ resgisterEmployeesController.register = async (req,res) => {
             (error, token) => {
                 if(error) console.log(error);
                 res.cookie("authToken", token)
-                
+                res.json({message: "Empleado Registrado"})
             }
 
         )

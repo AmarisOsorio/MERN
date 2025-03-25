@@ -10,6 +10,7 @@ import gradeRoute from "./src/routes/grade.js"
 import registerEmployeesRoute from "./src/routes/registerEmployees.js"
 import loginRoute from "./src/routes/login.js"
 import cookieParser from "cookie-parser";
+import logoutRoutes from "./src/routes/logout.js";
 
 /*Crear una constante que es igual
  a la libreria que importe y la ejecutamos*/
@@ -30,6 +31,7 @@ app.use("/api/grade", gradeRoute);
 app.use("/api/registerEmployees" , registerEmployeesRoute);
 //Login
 app.use("/api/login" , loginRoute);
+app.use("/api/logout", logoutRoutes);
 
 
 
@@ -42,4 +44,12 @@ export default app;
  * EL insert se puede dejar en empleados 
  * o se quita y se crea en el insert en 
  * de registrar de empleados
+ */
+
+/**
+ * Nodemon nos va ayudar a mantener el conectado el servidor
+ * sin desconectarlo 
+ * 
+ * instalarlo es: npm install nodemon
+ * ejecutar: npm run dev
  */
