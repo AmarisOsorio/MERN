@@ -11,6 +11,7 @@ import registerEmployeesRoute from "./src/routes/registerEmployees.js"
 import loginRoute from "./src/routes/login.js"
 import cookieParser from "cookie-parser";
 import logoutRoutes from "./src/routes/logout.js";
+import registerClientsRoute from "./src/routes/registerClients.js";
 
 /*Crear una constante que es igual
  a la libreria que importe y la ejecutamos*/
@@ -29,6 +30,7 @@ app.use("/api/categories" , categoriesRoutes);
 app.use("/api/reviews" , reviewsRoutes);
 app.use("/api/grade", gradeRoute);
 app.use("/api/registerEmployees" , registerEmployeesRoute);
+app.use("/api/registerClients",registerClientsRoute);
 //Login
 app.use("/api/login" , loginRoute);
 app.use("/api/logout", logoutRoutes);
@@ -52,4 +54,9 @@ export default app;
  * 
  * instalarlo es: npm install nodemon
  * ejecutar: npm run dev
+ */
+
+/**Librerias extra para verificar correo:
+ * npm install nodemailer
+ * npm install crypto
  */
