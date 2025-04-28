@@ -59,7 +59,7 @@ passwordRecoveryController.requestCode = async (req, res) => {
   }
 };
 
-/******************************* VERIFICAR EL CÒDIGO QUE ME ENVIARON POR EL CORREO************************************* */
+/******************************* VERIFICAR EL CÓDIGO QUE ME ENVIARON POR EL CORREO************************************* */
 
 passwordRecoveryController.verifyCode = async (req, res) => {
     const {code} = req.body;
@@ -96,4 +96,6 @@ passwordRecoveryController.verifyCode = async (req, res) => {
     } catch (error) {
         console.log("error" + error) 
     }
-}
+};
+
+export default passwordRecoveryController;
