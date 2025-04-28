@@ -2,6 +2,8 @@ import express from "express";
 
 const router = express.Router();
 
-router.route("/").post();
+router.route("/requestCode").post();
+router.route("/verifyCode").post();
+router.route("/newPassword").post();
 
-export defautl router;
+export default router;

@@ -1,4 +1,4 @@
-//Importo todo lo de la libreria express
+    //Importo todo lo de la libreria express
 import express from "express";
 import productsRoutes from "./src/routes/products.js" //OJO: recuerda siempre agregar el archivo '.js'
 import clientsRoutes from "./src/routes/clients.js"
@@ -34,6 +34,7 @@ app.use("/api/registerClients",registerClientsRoute);
 //Login
 app.use("/api/login" , loginRoute);
 app.use("/api/logout", logoutRoutes);
+app.use("/api/passwordRecovery");
 
 
 
