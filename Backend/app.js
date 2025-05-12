@@ -13,6 +13,8 @@ import cookieParser from "cookie-parser";
 import logoutRoutes from "./src/routes/logout.js";
 import registerClientsRoute from "./src/routes/registerClients.js";
 import passwordRecoveryRoute from "./src/routes/paswordRecovery.js";
+import blogRoute from "./src/routes/blog.js";
+
 /*Crear una constante que es igual
  a la libreria que importe y la ejecutamos*/
 const app = express();
@@ -31,6 +33,7 @@ app.use("/api/reviews" , reviewsRoutes);
 app.use("/api/grade", gradeRoute);
 app.use("/api/registerEmployees" , registerEmployeesRoute);
 app.use("/api/registerClients",registerClientsRoute);
+app.use("/api/blog", blogRoute)
 //Login
 app.use("/api/login" , loginRoute);
 app.use("/api/logout", logoutRoutes);
@@ -60,4 +63,12 @@ export default app;
 /**Librerias extra para verificar correo:
  * npm install nodemailer
  * npm install crypto
+ * 
+ * 
+ * Librerias para subir imagenes,
+ * Se utilizara Cloudinary: 
+ * 
+ * npm install cloudinary (Segunda)
+ * npm install multer (Tercera)
+ * npm install multer-storage-cloudinary (Primero instalar esta, para que no de conflictos)
  */
