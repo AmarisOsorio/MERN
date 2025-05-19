@@ -27,9 +27,12 @@ resgisterEmployeesController.register = async (req,res) => {
 
         //Generar un token que valide que ya estoy registrado 
         //y poder acceder a todas las paginas
+
+        const userType = "Employee"
+
         jsonwebtoken.sign(
             //1
-            {id: newEmployee._id},
+            {id: newEmployee._id , userType},
         
             //2
             config.JWT.secret,

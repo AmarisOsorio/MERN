@@ -14,27 +14,28 @@ import logoutRoutes from "./src/routes/logout.js";
 import registerClientsRoute from "./src/routes/registerClients.js";
 import passwordRecoveryRoute from "./src/routes/paswordRecovery.js";
 import blogRoute from "./src/routes/blog.js";
+import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
 
 /*Crear una constante que es igual
  a la libreria que importe y la ejecutamos*/
 const app = express();
 
 
-app.use(express.json()); //Esto permitira el uso de middleware para que acepte datos json, se coloca siempre arriba de la ruta
+app.use(express.json()); //Esto permitira el uso de middleware para que acepte datos json, se coloca siempre arriba de las rutas
 app.use(cookieParser()); // Que acepte cookies
 
 //Definir la ruta
 app.use("/api/products" , productsRoutes);
 app.use("/api/clients" , clientsRoutes); 
-app.use("/api/employees" , employeesRoutes);
+app.use("/api/employees" , validateAuthToken(["Employee" , "Admin"]) , employeesRoutes);
 app.use("/api/branches" , branchesRoutes);
 app.use("/api/categories" , categoriesRoutes);
 app.use("/api/reviews" , reviewsRoutes);
 app.use("/api/grade", gradeRoute);
-app.use("/api/registerEmployees" , registerEmployeesRoute);
+app.use("/api/registerEmployees", registerEmployeesRoute);
 app.use("/api/registerClients",registerClientsRoute);
 app.use("/api/blog", blogRoute)
-//Login
+//Login                                                                                                    
 app.use("/api/login" , loginRoute);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/passwordRecovery", passwordRecoveryRoute);
