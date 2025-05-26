@@ -1,6 +1,7 @@
 import React from "react";
 
 
+
 const Nav = () => {
   return (
     <>
@@ -11,13 +12,13 @@ const Nav = () => {
         <ul className="flex items-center space-x-8 font-semibold text-white">
           
           <li className="relative">
-            <a href="/" className="text-[#1E1E1E] underline underline-offset-[6px] decoration-2 decoration-[#1E1E1E]">
+            <a href="#" className="text-[#1E1E1E] underline underline-offset-[6px] decoration-2 decoration-[#1E1E1E]">
               Branches
             </a>
           </li>
           
           <li>
-            <a href="#" className="hover:text-[#1E1E1E] transition">
+            <a href="/Branches" className="hover:text-[#1E1E1E] transition">
               Products
             </a>
           </li>

@@ -1,7 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Nav from './components/Nav'
+import {BrowserRouter as Router, Routes, Route} from 'react-router'
+import Branches from '../src/pages/Branches'
+
+
+
 
 
 
@@ -10,7 +13,12 @@ function App() {
 
   return (
     <>
+    <Router>
       <Nav />
+      <Routes>
+        <Route path="/Branches" element={<Branches />} />
+      </Routes>
+    </Router>
     </>
   )
 }
