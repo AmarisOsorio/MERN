@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import RegisterEmployees from "../components/Employees/RegisterEmployees";
-import ListEmployees from "../components/Employees/ListEmployee";
+import registerClients from "../components/Clientes/RegisterClients.jsx";
+import ListClients from "../components/Clientes/ListClients.jsx";
 import { Toaster } from 'react-hot-toast';
 
 import useDataEmployees from "../components/Employees/hooks/useDataEmployee.jsx";
@@ -8,46 +8,50 @@ import useDataEmployees from "../components/Employees/hooks/useDataEmployee.jsx"
 const Employees = () => {
   // Efecto para cambiar el título de la página cuando se carga la página
   useEffect(() => {
-    document.title = 'Empleados';
+    document.title = 'Clientes';
   }, []);
 
   const {
     activeTab,
-    setActiveTab,
-    id,
-    setId,
-    name,
-    setName,
-    phoneNumber,
-    setPhoneNumber,
-    email,
-    setEmail,
-    password,
-    setPassword,
-    salaries,
-    setSalaries,
-    idRole,
-    setIdRole,
-    errorEmpleado,
-    setError,
-    success,
-    setSuccess,
-    loading,
-    setLoading,
-    employees,
-    setEmployees,
-    cleanData,
-    handleSubmit,
-    fetchData,
-    deleteEmployee,
-    updateEmployee,
-    handleUpdate,
+       setActiveTab,
+       id,
+       setId,
+       name,
+       setName,
+       lastName,
+       setLastName,
+       birthday,
+       setBirthday,
+       email,
+       setEmail,
+       password,
+       setPassword,
+       telephone,
+       setTelephone,
+       dui,
+       setDui,
+       isVerified,
+       setIsVerified,
+       errorCliente,
+       setError,
+       success,
+       setSuccess,
+       loading,
+       setLoading,
+       clients,
+       setClients,
+       cleanData,
+       handleSubmit,
+       fetchData,
+       deleteClients,
+       updateClient,
+       handleUpdate 
   } = useDataEmployees();
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Gestión de Empleados</h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">Gestión de Clientes</h1>
         
        
         <div className="mb-6">

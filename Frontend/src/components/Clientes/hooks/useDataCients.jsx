@@ -21,11 +21,12 @@ const useDataClients = () => {
     const [id, setId] = useState("");
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
+    const [birthday, setBirthday] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [telephone, setTelephone] = useState("");
     const [dui, setDui] = useState("");
-    const [isVerified, setIsVerified] = useState(false);
+    const [isVerified, setIsVerified] = useState("");
     const [errorCliente, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -35,6 +36,7 @@ const useDataClients = () => {
         setId("");
         setName("");
         setLastName("");
+        setBirthday("");
         setEmail("");
         setPassword("");
         setTelephone("");
@@ -46,7 +48,7 @@ const useDataClients = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        if (!name || !lastName || !email || !password || !telephone || !dui || !isVerified) {
+        if (!name || !lastName || !birthday || !email || !password || !telephone || !dui || !isVerified) {
             setError("Todos los campos son obligatorios");
             toast.error('Todos los campos son obligatorios');
             return;
@@ -71,6 +73,7 @@ const useDataClients = () => {
             const newClient = {
                 name,
                 lastName,
+                birthday,
                 email,
                 password,
                 telephone,
@@ -158,11 +161,14 @@ const useDataClients = () => {
             toast.error("Error al eliminar un empleado");
         }
     };
-    
+
+
+    // Función para actualizar los datos de los clientes
     const updateClient = async (dataClient) => {
         setId(dataClient._id);
         setName(dataClient.name);
         setLastName(dataClient.lastName);
+        setBirthday(dataClient.birthday);
         setEmail(dataClient.email);
         setTelephone(dataClient.telephone);
         setDui(dataClient.dui);
@@ -174,7 +180,7 @@ const useDataClients = () => {
         setSuccess(null);
         setActiveTab("form");
     };
-    // Función para actualizar los datos de los clientes
+    
     const handleUpdate = async (e) => {
         e.preventDefault();
     
@@ -237,8 +243,41 @@ const useDataClients = () => {
     };
 
     return {
-        
+       activeTab,
+       setActiveTab,
+       id,
+       setId,
+       name,
+       setName,
+       lastName,
+       setLastName,
+       birthday,
+       setBirthday,
+       email,
+       setEmail,
+       password,
+       setPassword,
+       telephone,
+       setTelephone,
+       dui,
+       setDui,
+       isVerified,
+       setIsVerified,
+       errorCliente,
+       setError,
+       success,
+       setSuccess,
+       loading,
+       setLoading,
+       clients,
+       setClients,
+       cleanData,
+       handleSubmit,
+       fetchData,
+       deleteClients,
+       updateClient,
+       handleUpdate 
     };
 };
 
-export default useDataEmployees;
+export default useDataClients;

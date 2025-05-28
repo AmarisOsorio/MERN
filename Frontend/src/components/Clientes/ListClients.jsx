@@ -3,11 +3,11 @@
 
 import React from "react";
 
-const ListEmployees = ({
-  deleteEmployee,
-  updateEmployee,
+const ListClients = ({
+  deleteClient,
+  updateClient,
   loading,
-  employees,
+  clients,
   setActiveTab,
 }) => {
   return (
@@ -28,7 +28,7 @@ const ListEmployees = ({
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
-            Agregar empleado
+            Agregar cliente
           </button>
         </div>
 
@@ -37,10 +37,13 @@ const ListEmployees = ({
             <thead className="bg-gray-100">
               <tr>
                 <th className="text-left py-3 px-4 font-medium text-gray-600">Nombre</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600">Apellido</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600">Fecha de Nacimiento</th>
                 <th className="text-left py-3 px-4 font-medium text-gray-600">Correo</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600">Contraseña</th>
                 <th className="text-left py-3 px-4 font-medium text-gray-600">Teléfono</th>
-                <th className="text-left py-3 px-4 font-medium text-gray-600">Salarios</th>
-                <th className="text-left py-3 px-4 font-medium text-gray-600">Área de trabajo</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600">DUI</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600">Verificado</th>
                 <th className="text-left py-3 px-4 font-medium text-gray-600">Acciones</th>
               </tr>
             </thead>
@@ -56,32 +59,32 @@ const ListEmployees = ({
               {!loading && employees?.length === 0 && (
                 <tr>
                   <td colSpan="6" className="text-center py-8 text-gray-500">
-                    No hay empleados registrados
+                    No hay clientes registrados
                   </td>
                 </tr>
               )}
 
-              {!loading && employees?.map((employee) => (
-                <tr key={employee._id} className="border-b hover:bg-gray-50">
-                  <td className="py-3 px-4 text-gray-800">{employee.name}</td>
-                  <td className="py-3 px-4 text-gray-600">{employee.email}</td>
-                  <td className="py-3 px-4 text-gray-600">{employee.phoneNumber}</td>
-                  <td className="py-3 px-4 text-gray-600">
-                    ${employee.salaries ? employee.salaries.toFixed(2) : "0.00"}
-                  </td>
-                  <td className="py-3 px-4 text-gray-600">
-                    {employee.idRole || "Sin asignar"}
-                  </td>
+              {!loading && clients?.map((clients) => (
+                <tr key={clients._id} className="border-b hover:bg-gray-50">
+                  <td className="py-3 px-4 text-gray-800">{clients.name}</td>
+                  <td className="py-3 px-4 text-gray-600">{clients.lastName}</td>
+                  <td className="py-3 px-4 text-gray-800">{clients.birthday}</td>
+                  <td className="py-3 px-4 text-gray-600">{clients.email}</td>
+                  <td className="py-3 px-4 text-gray-600">{clients.password}</td>
+                  <td className="py-3 px-4 text-gray-600">{clients.telephone}</td>
+                  <td className="py-3 px-4 text-gray-600">{clients.dui}</td>
+                  <td className="py-3 px-4 text-gray-600">{clients.isVerified}</td>
+                  
                   <td className="py-3 px-4">
                     <div className="flex space-x-2">
                       <button
-                        onClick={() => updateEmployee(employee)}
+                        onClick={() => updateClient(clients)}
                         className="text-blue-600 hover:text-blue-800 text-sm"
                       >
                         Editar
                       </button>
                       <button
-                        onClick={() => deleteEmployee(employee._id)}
+                        onClick={() => deleteClient(clients._id)}
                         className="text-red-600 hover:text-red-800 text-sm"
                       >
                         Eliminar
@@ -98,4 +101,4 @@ const ListEmployees = ({
   );
 };
 
-export default ListEmployees;
+export default ListClients;

@@ -3,11 +3,11 @@
 import React from 'react';
 import { Edit, Trash2 } from 'lucide-react';
 
-const EmployeeCard = ({ 
-  employee, 
+const ClientsCard = ({ 
+  clients, 
   index, 
   isEditing, 
-  editingEmployee,
+  editingclient,
   onEdit, 
   onDelete, 
   onSaveEdit, 
@@ -22,32 +22,50 @@ const EmployeeCard = ({
         <div className="grid grid-cols-6 gap-4 items-center">
           <input
             type="text"
-            value={editingEmployee.nombre}
-            onChange={(e) => onEditChange({...editingEmployee, nombre: e.target.value})}
+            value={editingclient.nombre}
+            onChange={(e) => onEditChange({...editingclient, nombre: e.target.value})}
+            className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          />
+          <input
+            type="text"
+            value={editingclient.apellido}
+            onChange={(e) => onEditChange({...editingclient, apellido: e.target.value})}
+            className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          />
+          <input
+            type="text"
+            value={editingclient.fechaNacimiento}
+            onChange={(e) => onEditChange({...editingclient, fechaNacimiento: e.target.value})}
             className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           />
           <input
             type="email"
-            value={editingEmployee.correo}
-            onChange={(e) => onEditChange({...editingEmployee, correo: e.target.value})}
+            value={editingclient.correo}
+            onChange={(e) => onEditChange({...editingclient, correo: e.target.value})}
             className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           />
           <input
             type="text"
-            value={editingEmployee.telefono}
-            onChange={(e) => onEditChange({...editingEmployee, telefono: e.target.value})}
+            value={editingclient.contrasena}
+            onChange={(e) => onEditChange({...editingclient, contrasena: e.target.value})}
             className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           />
           <input
             type="text"
-            value={editingEmployee.salario}
-            onChange={(e) => onEditChange({...editingEmployee, salario: e.target.value})}
+            value={editingclient.telefono}
+            onChange={(e) => onEditChange({...editingclient, telefono: e.target.value})}
             className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           />
           <input
             type="text"
-            value={editingEmployee.area}
-            onChange={(e) => onEditChange({...editingEmployee, area: e.target.value})}
+            value={editingclient.dui}
+            onChange={(e) => onEditChange({...editingclient, dui: e.target.value})}
+            className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          />
+          <input
+            type="text"
+            value={editingclient.verificado}
+            onChange={(e) => onEditChange({...editingclient, verificado: e.target.value})}
             className="px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           />
           <div className="flex space-x-2">
@@ -73,23 +91,26 @@ const EmployeeCard = ({
   return (
     <div className={`px-6 py-4 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
       <div className="grid grid-cols-6 gap-4 items-center">
-        <div className="text-sm font-medium text-gray-900">{employee.nombre}</div>
-        <div className="text-sm text-gray-600">{employee.correo}</div>
-        <div className="text-sm text-gray-600">{employee.telefono}</div>
-        <div className="text-sm text-gray-900 font-medium">{employee.salario}</div>
-        <div className="text-sm text-gray-600">{employee.area}</div>
+        <div className="text-sm font-medium text-gray-900">{clients.nombre}</div>
+        <div className="text-sm font-medium text-gray-900">{clients.apellido}</div>
+        <div className="text-sm text-gray-600">{clients.fechaNacimiento}</div>
+        <div className="text-sm text-gray-600">{clients.correo}</div>
+        <div className="text-sm text-gray-600">{clients.contrasena}</div>
+        <div className="text-sm text-gray-600">{clients.telefono}</div>
+        <div className="text-sm text-gray-900 font-medium">{clients.dui}</div>
+        <div className="text-sm text-gray-600">{clients.verificado}</div>
         <div className="flex space-x-2">
           <button
-            onClick={() => onEdit(employee)}
+            onClick={() => onEdit(clients)}
             className="p-1 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded transition-colors"
-            title="Editar empleado"
+            title="Editar cliente"
           >
             <Edit className="h-4 w-4" />
           </button>
           <button
-            onClick={() => onDelete(employee.id)}
+            onClick={() => onDelete(clients.id)}
             className="p-1 text-red-600 hover:text-red-800 hover:bg-red-50 rounded transition-colors"
-            title="Eliminar empleado"
+            title="Eliminar cliente"
           >
             <Trash2 className="h-4 w-4" />
           </button>
@@ -99,4 +120,4 @@ const EmployeeCard = ({
   );
 };
 
-export default EmployeeCard;
+export default ClientsCard;

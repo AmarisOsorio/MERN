@@ -3,18 +3,24 @@
 
 import React from "react";
 
-const RegisterEmployees = ({
+const registerClients = ({
   id,
   name,
   setName,
-  phoneNumber,
-  setPhoneNumber,
+  lastname,
+  setLastName,
+  birthday,
+  setBirthday,
   email,
   setEmail,
   password,
   setPassword,
-  salaries,
-  setSalaries,
+  telephone,
+  setTelephone,
+  dui,
+  setDui,
+  isVerified,
+  setIsVerified,
   handleSubmit,
   handleUpdate,
 }) => {
@@ -28,7 +34,7 @@ const RegisterEmployees = ({
             </svg>
           </div>
           <h2 className="text-lg font-semibold text-gray-800">
-            {id ? "Editar empleado" : "Agregar empleado"}
+            {id ? "Editar cliente" : "Agregar cliente"}
           </h2>
         </div>
 
@@ -40,7 +46,31 @@ const RegisterEmployees = ({
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full px-0 py-2 border-0 border-b-2 border-blue-300 focus:border-blue-500 focus:outline-none bg-transparent"
-              placeholder="Nombre completo"
+              placeholder="Nombre"
+              required
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="lastname"
+              value={lastname}
+              onChange={(e) => setLastName(e.target.value)}
+              className="w-full px-0 py-2 border-0 border-b-2 border-blue-300 focus:border-blue-500 focus:outline-none bg-transparent"
+              placeholder="Apellido"
+              required
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="birthday"
+              value={birthday}
+              onChange={(e) => setBirthday(e.target.value)}
+              className="w-full px-0 py-2 border-0 border-b-2 border-blue-300 focus:border-blue-500 focus:outline-none bg-transparent"
+              placeholder="Fecha de Nacimiento"
               required
             />
           </div>
@@ -59,32 +89,6 @@ const RegisterEmployees = ({
 
           <div>
             <input
-              type="text"
-              name="phoneNumber"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              className="w-full px-0 py-2 border-0 border-b-2 border-blue-300 focus:border-blue-500 focus:outline-none bg-transparent"
-              placeholder="Teléfono"
-              required
-            />
-          </div>
-
-          <div>
-            <input
-              type="number"
-              name="salaries"
-              value={salaries}
-              onChange={(e) => setSalaries(e.target.value)}
-              className="w-full px-0 py-2 border-0 border-b-2 border-blue-300 focus:border-blue-500 focus:outline-none bg-transparent"
-              placeholder="Salario"
-              min="0"
-              step="0.01"
-              required
-            />
-          </div>
-
-          <div>
-            <input
               type="password"
               name="password"
               value={password}
@@ -96,6 +100,45 @@ const RegisterEmployees = ({
             />
           </div>
 
+          <div>
+            <input
+              type="text"
+              name="telephone"
+              value={telephone}
+              onChange={(e) => setTelephone(e.target.value)}
+              className="w-full px-0 py-2 border-0 border-b-2 border-blue-300 focus:border-blue-500 focus:outline-none bg-transparent"
+              placeholder="Teléfono"
+              required
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="dui"
+              value={dui}
+              onChange={(e) => setDui(e.target.value)}
+              className="w-full px-0 py-2 border-0 border-b-2 border-blue-300 focus:border-blue-500 focus:outline-none bg-transparent"
+              placeholder="DUI"
+              required
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="isVerified"
+              value={isVerified}
+              onChange={(e) => setIsVerified(e.target.value)}
+              className="w-full px-0 py-2 border-0 border-b-2 border-blue-300 focus:border-blue-500 focus:outline-none bg-transparent"
+              placeholder="DUI"
+              required
+            />
+          </div>
+
+
+          
+
           <div className="flex justify-center space-x-4 pt-6">
             <button
               type="button"
@@ -103,10 +146,13 @@ const RegisterEmployees = ({
               onClick={() => {
                 // Reset form o cerrar modal
                 setName("");
+                setLastName("");
+                setBirthday("");
                 setEmail("");
-                setPhoneNumber("");
-                setSalaries("");
                 setPassword("");
+                setTelephone("");
+                setDui("");
+                setIsVerified("");
               }}
             >
               Cancelar
@@ -124,5 +170,5 @@ const RegisterEmployees = ({
   );
 };
 
-export default RegisterEmployees;
+export default registerClients;
     
