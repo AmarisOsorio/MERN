@@ -15,11 +15,20 @@ import registerClientsRoute from "./src/routes/registerClients.js";
 import passwordRecoveryRoute from "./src/routes/paswordRecovery.js";
 import blogRoute from "./src/routes/blog.js";
 import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
+import cors from 'cors';
+
 
 /*Crear una constante que es igual
  a la libreria que importe y la ejecutamos*/
 const app = express();
 
+
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Dominio del cliente
+    credentials: true, // Permitir envío de cookies y credenciales
+  })
+);
 
 app.use(express.json()); //Esto permitira el uso de middleware para que acepte datos json, se coloca siempre arriba de las rutas
 app.use(cookieParser()); // Que acepte cookies
