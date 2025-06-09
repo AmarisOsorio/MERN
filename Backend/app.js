@@ -16,7 +16,10 @@ import passwordRecoveryRoute from "./src/routes/paswordRecovery.js";
 import blogRoute from "./src/routes/blog.js";
 import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
 import cors from 'cors';
+import swaggerUI from "swagger-ui-express"
 
+import fs from "fs";
+import path from "path";
 
 /*Crear una constante que es igual
  a la libreria que importe y la ejecutamos*/
@@ -33,6 +36,17 @@ app.use(
 app.use(express.json()); //Esto permitira el uso de middleware para que acepte datos json, se coloca siempre arriba de las rutas
 app.use(cookieParser()); // Que acepte cookies
 
+
+/**
+ * Utilizar el sistema de archivos para leer el JSON
+ * de swagger y ver mi documentación
+ */
+const swaggerDocument = JSON.parse(fs.readFileSync(
+  path.resolve("./ricaldone-0c9-CocaCola-1.0.0-resolved.json"),"utf-8"
+))
+ 
+//Documentación
+app.use("/api/docs" , swaggerUI.serve , swaggerUI.setup(swaggerDocument));
 //Definir la ruta
 app.use("/api/products" , productsRoutes);
 app.use("/api/clients" , clientsRoutes); 
@@ -81,4 +95,7 @@ export default app;
  * npm install cloudinary (Segunda)
  * npm install multer (Tercera)
  * npm install multer-storage-cloudinary (Primero instalar esta, para que no de conflictos)
+ * 
+ * Librerias para documentación
+ * npm i swagger-ui-express --force(esto es para que no de error cloudinary)
  */
