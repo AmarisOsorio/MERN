@@ -19,6 +19,24 @@ salesController.getAllSales = async (req , res) => {
 /********************** I N S E R T **************************/
 
 
+salesController.insertSales = async (req, res) => {
+    try {
+       const {product, category, customer, total} = req.body;
+       
+       if(total < 0){
+        res.status(400).json({message: "El total no puede ser negativo"});
+       }
+ 
+       const newSale = new salesModel({product, category, customer, total});
+       
+       await newSale.save();
+ 
+       res.status(200).json({message: "Venta registrada correctamente"});
+    } catch (error) {
+        console.log("error"+error)
+        res.status(500).json({ message: "Error al registrar la venta" });
+    }
+}
 
 
 /********************** D E L E T E **************************/
@@ -30,13 +48,29 @@ salesController.deleteSales = async (req , res) => {
         res.json({message: "The sales has been delete"})
     } catch (error) {
         console.log("Error" + error)
-        res.status(400).json({message: "Internal Error"})
+        res.status(500).json({message: "Error al eliminar la venta"})
     }
 };
 
 
 /********************** U P D A T E **************************/
 
+
+salesController.updateSales = async (req, res) => {
+    try {
+        const {product, category, customer, total} = req.body;
+        if(total < 0){
+            res.status(400).json({message: "El total no puede ser negativo"});
+           }
+ 
+           await ventasModel.findByIdAndUpdate(req.params.id, {product, category, customer, total}, {new: true});
+ 
+           res.status(200).json({message: "Venta actualizada correctamente"});
+    } catch (error) {
+        console.log("error"+error)
+        res.status(500).json({ message: "Error al actualizar la venta" });
+    }
+}
 
 
 
