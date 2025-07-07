@@ -14,6 +14,7 @@ import logoutRoutes from "./src/routes/logout.js";
 import registerClientsRoute from "./src/routes/registerClients.js";
 import passwordRecoveryRoute from "./src/routes/paswordRecovery.js";
 import blogRoute from "./src/routes/blog.js";
+import salesRoute from "./src/routes/sales.js"
 import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
 import cors from 'cors';
 import swaggerUI from "swagger-ui-express"
@@ -57,7 +58,8 @@ app.use("/api/reviews" , reviewsRoutes);
 app.use("/api/grade", gradeRoute);
 app.use("/api/registerEmployees", registerEmployeesRoute);
 app.use("/api/registerClients",registerClientsRoute);
-app.use("/api/blog", blogRoute)
+app.use("/api/blog", blogRoute);
+app.use("/api/sales", salesRoute);
 //Login                                                                                                    
 app.use("/api/login" , loginRoute);
 app.use("/api/logout", logoutRoutes);
